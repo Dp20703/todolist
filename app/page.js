@@ -22,6 +22,13 @@ const page = () => {
     setmainTask(copyTask)
 
   }
+  // const updateHandler = (e,i) => {
+  //   e.preventDefault()
+  //   setmainTask([...mainTask, { title, desc }])
+  //   settitle("")
+  //   setdesc("")
+  //   // console.log(mainTask)
+  // }
   let randerTask = <h2>No Task Availabel</h2>
   if (mainTask.length > 0) {
     randerTask = mainTask.map((t, i) => {
@@ -33,7 +40,11 @@ const page = () => {
         <button onClick={() => {
           deleteHandler(i)
         }}
-          className='bg-red-400 text-white rounded px-2 py-2'>Delete</button>
+          className='bg-red-600 text-white rounded px-2 py-2'>Delete</button>
+        {/* <button onClick={() => {
+          updateHandler(i)
+        }}
+          className='bg-green-600 text-white rounded px-2 py-2'>Update</button> */}
       </li>
     })
   }
@@ -41,10 +52,10 @@ const page = () => {
     <>
       <h1 className='bg-black text-white font-bold text-center text-5xl p-5 w-screen'>Dp's To-do List</h1>
       <form onSubmit={submitHandler} >
-        <input type="text" className='text-2xl px-4 py-2 m-8 border-zinc-700 border-4 w-[330px]  md:w-[400px]  lg:w-[400px]' placeholder='Enter Title here' value={title} onChange={(e) => {
+        <input type="text" className='text-2xl px-4 py-2 m-8 border-zinc-700 border-4 w-[330px]  md:w-[400px]  lg:w-[400px]' required placeholder='Enter Title here' value={title} onChange={(e) => {
           settitle(e.target.value)
         }} />
-        <input type="text" className='text-2xl px-4 py-2 m-8 border-zinc-700 border-4 w-[330px] md:w-[400px] lg:w-[400px]' placeholder='Enter Description here' value={desc} onChange={(e) => {
+        <input type="text" className='text-2xl px-4 py-2 m-8 border-zinc-700 border-4 w-[330px] md:w-[400px] lg:w-[400px]' placeholder='Enter Description here' required value={desc} onChange={(e) => {
           setdesc(e.target.value)
         }} />
         <button className='bg-black text-white px-4 py-3 font-bold rounded text-2xl m-5'>Add Task</button>
