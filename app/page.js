@@ -39,7 +39,7 @@ const page = () => {
   }
   return (
     <>
-      <h1 className='bg-black text-white font-bold text-center text-5xl p-5 '>Dp's To-do List</h1>
+      <h1 className='bg-black text-white font-bold text-center text-5xl p-5 w-full'>Dp's To-do List</h1>
       <form onSubmit={submitHandler}>
         <input type="text" className='text-2xl px-4 py-2 m-8 border-zinc-700 border-4' placeholder='Enter Title here' value={title} onChange={(e) => {
           settitle(e.target.value)
@@ -50,7 +50,7 @@ const page = () => {
         <button className='bg-black text-white px-4 py-3 font-bold rounded text-2xl m-5'>Add Task</button>
       </form>
       <hr />
-      <div className='p-8 bg-slate-200'>
+      <div className='p-8 bg-slate-200 w-full'>
         <ul>{randerTask}</ul>
       </div>
     </>
