@@ -1,4 +1,5 @@
 'use client'
+
 import React, { useState } from 'react'
 
 const page = () => {
@@ -12,13 +13,28 @@ const page = () => {
     setdesc("")
     // console.log(mainTask)
   }
+  const deleteHandler = (i) => {
+    let copyTask = [...mainTask]
+    copyTask.splice(i, 1)
+    // let removedTask=copyTask.splice(i,1)
+    // console.log(removedTask)
+    // console.log(copyTask)
+    setmainTask(copyTask)
+
+  }
   let randerTask = <h2>No Task Availabel</h2>
   if (mainTask.length > 0) {
     randerTask = mainTask.map((t, i) => {
-      return <li><div className='flex justify-between mb-5'>
-        <h5 className='text-2xl font-semibold'>{t.title}</h5>
-        <h6 className='text-xl font-semibold'>{t.desc}</h6>
-      </div></li>
+      return <li key={i} className='flex justify-between items-center mb-8'>
+        <div className='flex items-center justify-between w-2/3'>
+          <h5 className='text-2xl font-semibold'>{t.title}</h5>
+          <h6 className='text-lg font-medium'>{t.desc}</h6>
+        </div>
+        <button onClick={() => {
+          deleteHandler(i)
+        }}
+          className='bg-red-400 text-white rounded px-2 py-2'>Delete</button>
+      </li>
     })
   }
   return (
