@@ -39,18 +39,18 @@ const page = () => {
   }
   return (
     <>
-      <h1 className='bg-black text-white font-bold text-center text-5xl p-5 w-full'>Dp's To-do List</h1>
-      <form onSubmit={submitHandler}>
-        <input type="text" className='text-2xl px-4 py-2 m-8 border-zinc-700 border-4' placeholder='Enter Title here' value={title} onChange={(e) => {
+      <h1 className='bg-black text-white font-bold text-center text-5xl p-5 w-screen'>Dp's To-do List</h1>
+      <form onSubmit={submitHandler} >
+        <input type="text" className='text-2xl px-4 py-2 m-8 border-zinc-700 border-4 w-[330px]  md:w-[400px]  lg:w-[400px]' placeholder='Enter Title here' value={title} onChange={(e) => {
           settitle(e.target.value)
         }} />
-        <input type="text" className='text-2xl px-4 py-2 m-8 border-zinc-700 border-4' placeholder='Enter Description here' value={desc} onChange={(e) => {
+        <input type="text" className='text-2xl px-4 py-2 m-8 border-zinc-700 border-4 w-[330px] md:w-[400px] lg:w-[400px]' placeholder='Enter Description here' value={desc} onChange={(e) => {
           setdesc(e.target.value)
         }} />
         <button className='bg-black text-white px-4 py-3 font-bold rounded text-2xl m-5'>Add Task</button>
       </form>
       <hr />
-      <div className='p-8 bg-slate-200 w-full'>
+      <div className='p-8 bg-slate-200 '>
         <ul>{randerTask}</ul>
       </div>
     </>
