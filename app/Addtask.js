@@ -1,15 +1,30 @@
 'use client'
 
-import { Courier_Prime, Fascinate } from 'next/font/google';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const Addtask = () => {
     const [isEditing, setisEditing] = useState(false)
     let [title, settitle] = useState("")
     let [desc, setdesc] = useState("")
-    const [mainTask, setmainTask] = useState([])
     const [eTitle, seteTitle] = useState("")
     const [eDesc, seteDesc] = useState("")
+    const [mainTask, setmainTask] = useState(() => {
+        // get the todos from localstorage
+        const savedTodos = localStorage.getItem("todos");
+        // if there are todos stored
+        if (savedTodos) {
+            // return the parsed the JSON object back to a javascript object
+            return JSON.parse(savedTodos);
+            // otherwise
+        } else {
+            // return an empty array
+            return [];
+        }
+    });
+    
+    useEffect(() => {
+        localStorage.setItem("todos", JSON.stringify(mainTask));
+    }, [mainTask]);
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -21,9 +36,6 @@ const Addtask = () => {
     const deleteHandler = (i) => {
         let copyTask = [...mainTask]
         copyTask.splice(i, 1)
-        // let removedTask=copyTask.splice(i,1)
-        // console.log(removedTask)
-        // console.log(copyTask)
         setmainTask(copyTask)
 
     }
