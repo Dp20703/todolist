@@ -106,8 +106,8 @@ const Addtask = () => {
 
                     </div>
                     <div className='flex justify-around items-center  '>
-                        <button type="submit" className='text-white bg-blue-600 py-2 px-2 rounded'>Update</button>
-                        <button className='text-white bg-red-600 py-2 px-2 rounded' type='submit' onClick={() => setisEditing(false)}>Cancel</button>
+                        <button type="submit" className='text-white bg-blue-600 py-2 px-2 rounded text-xl font-semibold'>Update</button>
+                        <button className='text-white bg-red-600 py-2 px-2 rounded text-xl font-semibold' type='submit'  onClick={() => setisEditing(false)}>Cancel</button>
                     </div>
                 </form>
                 :
