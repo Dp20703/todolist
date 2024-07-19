@@ -1,6 +1,10 @@
 'use client'
 import React from 'react'
-import Addtask from './Addtask'
+import dynamic from 'next/dynamic'
+ 
+const Addtask = dynamic(() => import('./Addtask'), {
+  ssr: false,
+})
 
 const page = () => {
   return (

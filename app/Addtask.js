@@ -26,7 +26,7 @@ const Addtask = () => {
     useEffect(() => {
         localStorage.setItem("todos", JSON.stringify(mainTask));
     }, [mainTask]);
-
+ 
     const submitHandler = (e) => {
         e.preventDefault()
         setmainTask([...mainTask, { title, desc }])
@@ -93,16 +93,16 @@ const Addtask = () => {
 
                     <h1 className='bg-black text-white font-bold text-center text-5xl p-5 w-screen'>Edit To-do List</h1>
                     <div className='flex justify-around items-center mb-5'>
-                        <h2 className='text-center  bg-zinc-800 text-white px-4 ml-4 rounded py-4 font-bold w-1/2'>Edit Title:</h2>
+                        <h2 className='text-center  bg-zinc-800 text-white px-4 ml-4 rounded py-4 font-bold w-1/2 lg:w-1/4 text-2xl'>Edit Title:</h2>
                         <input type="text" name="editTodo" id="editTodo" value={eTitle} onChange={(e) => {
                             seteTitle(e.target.value)
-                        }} className='text-2xl px-4 py-2 m-8 border-zinc-700 border-4 w-1/2  md:w-[400px]  lg:w-[400px]' required placeholder='Edit Title here' />
+                        }} className='text-2xl px-4 py-2 m-8 border-zinc-700 border-4 w-1/2  md:w-[400px]  lg:w-1/3' required placeholder='Edit Title here' />
                     </div>
                     <div className='flex justify-around items-center mb-5'>
-                        <h2 className='text-center bg-zinc-800 text-white px-4 ml-4 rounded py-4 font-bold w-1/2'>Edit Description:</h2>
+                        <h2 className='text-center bg-zinc-800 text-white px-4 ml-4 rounded py-4 font-bold w-1/2 lg:w-1/4 text-2xl'>Edit Description:</h2>
                         <input type="text" name="editTodo" id="editTodo" value={eDesc} onChange={(e) => {
                             seteDesc(e.target.value)
-                        }} className='text-2xl px-4 py-2 m-8 border-zinc-700 border-4 w-1/2 md:w-[400px] lg:w-[400px]' placeholder='Edit Description here' required />
+                        }} className='text-2xl px-4 py-2 m-8 border-zinc-700 border-4 w-1/2 md:w-[400px] lg:w-1/3' placeholder='Edit Description here' required />
 
                     </div>
                     <div className='flex justify-around items-center  '>
