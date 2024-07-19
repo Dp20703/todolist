@@ -17,6 +17,7 @@ const Addtask = () => {
             return JSON.parse(savedTodos);
             // otherwise
         } else {
+            alert("Data is not exist")
             // return an empty array
             return [];
         }
@@ -70,18 +71,18 @@ const Addtask = () => {
     let randerTask = <h2>No Task Availabel</h2>
     if (mainTask.length > 0) {
         randerTask = mainTask.map((t, i) => {
-            return <li key={i} className='flex justify-between items-center mb-8'>
-                <div className='flex items-center justify-between w-2/3'>
-                    <h5 className='text-2xl font-semibold'>{t.title}</h5>
-                    <h6 className='text-lg font-medium'>{t.desc}</h6>
+            return <li key={i} className='flex justify-between items-center  mb-8'>
+                <div className='flex items-center justify-between w-1/2'>
+                    <h5 className='text-2xl  font-semibold mr-4'>{t.title}</h5>
+                    <h6 className='text-lg font-medium mr-3 '>{t.desc}</h6>
                 </div>
                 <button onClick={() => {
                     deleteHandler(i)
                 }}
-                    className='bg-red-600 text-white rounded px-2 py-2'>Delete</button>
+                    className='bg-red-600 text-white rounded px-2 py-2 ml-8'>Delete</button>
                 <button onClick={() => {
                     handleEditClick(i, t.title, t.desc)
-                }} className='bg-blue-600 text-white rounded px-2 py-2'>Update</button>
+                }} className='bg-blue-600 text-white rounded px-2 py-2 ml-4'>Update</button>
             </li>
         })
     }
@@ -92,16 +93,16 @@ const Addtask = () => {
 
                     <h1 className='bg-black text-white font-bold text-center text-5xl p-5 w-screen'>Edit To-do List</h1>
                     <div className='flex justify-around items-center mb-5'>
-                        <h2 className='text-center  bg-zinc-800 text-white px-4 ml-4 rounded py-4 font-bold w-1/4'>Edit Title:</h2>
+                        <h2 className='text-center  bg-zinc-800 text-white px-4 ml-4 rounded py-4 font-bold w-1/2'>Edit Title:</h2>
                         <input type="text" name="editTodo" id="editTodo" value={eTitle} onChange={(e) => {
                             seteTitle(e.target.value)
-                        }} className='text-2xl px-4 py-2 m-8 border-zinc-700 border-4 w-[330px]  md:w-[400px]  lg:w-[400px]' required placeholder='Edit Title here' />
+                        }} className='text-2xl px-4 py-2 m-8 border-zinc-700 border-4 w-1/2  md:w-[400px]  lg:w-[400px]' required placeholder='Edit Title here' />
                     </div>
                     <div className='flex justify-around items-center mb-5'>
-                        <h2 className='text-center bg-zinc-800 text-white px-4 ml-4 rounded py-4 font-bold w-1/4'>Edit Description:</h2>
+                        <h2 className='text-center bg-zinc-800 text-white px-4 ml-4 rounded py-4 font-bold w-1/2'>Edit Description:</h2>
                         <input type="text" name="editTodo" id="editTodo" value={eDesc} onChange={(e) => {
                             seteDesc(e.target.value)
-                        }} className='text-2xl px-4 py-2 m-8 border-zinc-700 border-4 w-[330px] md:w-[400px] lg:w-[400px]' placeholder='Edit Description here' required />
+                        }} className='text-2xl px-4 py-2 m-8 border-zinc-700 border-4 w-1/2 md:w-[400px] lg:w-[400px]' placeholder='Edit Description here' required />
 
                     </div>
                     <div className='flex justify-around items-center  '>
